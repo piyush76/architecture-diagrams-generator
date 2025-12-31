@@ -1,0 +1,305 @@
+digraph "Azure Kubernetes Cluster" {
+	graph [bb="0,0,615,1557",
+		bgcolor=white,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=14,
+		label="Azure Kubernetes Cluster",
+		lheight=0.21,
+		lp="307.5,11.5",
+		lwidth=2.46,
+		nodesep=0.8,
+		pad=0.5,
+		rankdir=LR,
+		ranksep=1.0,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Azure Subscription" {
+		graph [bb="125,31,607,1549",
+			bgcolor="#E5F5FD",
+			fontname="Sans-Serif",
+			fontsize=12,
+			label="Azure Subscription",
+			labeljust=l,
+			lheight=0.18,
+			lp="189,1538.5",
+			lwidth=1.56,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_RG: ics-containers" {
+			graph [bb="454,1345,579,1520",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="RG: ics-containers",
+				labeljust=l,
+				lheight=0.18,
+				lp="516.5,1509.5",
+				lwidth=1.51,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			c49381538c0b4834b05a14bb52544907	[height=1.9028,
+				image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/compute/container-registries.png",
+				label=incora,
+				pos="516.5,1422",
+				shape=none,
+				width=1.4028];
+		}
+		subgraph "cluster_RG: <cluster_name>-rg" {
+			graph [bb="133,39,599,1325",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="RG: <cluster_name>-rg",
+				labeljust=l,
+				lheight=0.18,
+				lp="212,1314.5",
+				lwidth=1.97,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			subgraph "cluster_VNet: <cluster_name>-vnet (10.61.6.32/27)" {
+				graph [bb="141,47,591,955",
+					bgcolor="#ECE8F6",
+					fontname="Sans-Serif",
+					fontsize=12,
+					label="VNet: <cluster_name>-vnet (10.61.6.32/27)",
+					labeljust=l,
+					lheight=0.18,
+					lp="280.5,944.5",
+					lwidth=3.65,
+					pencolor="#AEB6BE",
+					rankdir=LR,
+					shape=box,
+					style=rounded
+				];
+				subgraph "cluster_Subnet: <cluster_name>-subnet (10.61.6.32/28)" {
+					graph [bb="187,238,583,926",
+						bgcolor="#FDF7E3",
+						fontname="Sans-Serif",
+						fontsize=12,
+						label="Subnet: <cluster_name>-subnet (10.61.6.32/28)",
+						labeljust=l,
+						lheight=0.18,
+						lp="340.5,915.5",
+						lwidth=4.04,
+						pencolor="#AEB6BE",
+						rankdir=LR,
+						shape=box,
+						style=rounded
+					];
+					subgraph "cluster_Node Pools" {
+						graph [bb="458,246,575,897",
+							bgcolor="#E5F5FD",
+							fontname="Sans-Serif",
+							fontsize=12,
+							label="Node Pools",
+							labeljust=l,
+							lheight=0.18,
+							lp="499.5,886.5",
+							lwidth=0.93,
+							pencolor="#AEB6BE",
+							rankdir=LR,
+							shape=box,
+							style=rounded
+						];
+						ded06a34bba64b4eb296aa99fde70a29	[height=2.3056,
+							image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/compute/vm-scale-sets.png",
+							label="System Pool
+(3 nodes)",
+							pos="516.5,561",
+							shape=none,
+							width=1.4028];
+						"251414cb2dfa427c83d3501faffd1674"	[height=2.3056,
+							image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/compute/vm-scale-sets.png",
+							label="User Pool
+(2 nodes)",
+							pos="516.5,785",
+							shape=none,
+							width=1.4028];
+						c39a789f185b47c18f4ec017dc405f50	[height=2.3056,
+							image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/compute/vm-scale-sets.png",
+							label="CI Pool
+(2 nodes)",
+							pos="516.5,337",
+							shape=none,
+							width=1.4028];
+					}
+					subgraph "cluster_K8s Namespaces" {
+						graph [bb="195,266,328,673",
+							bgcolor="#E5F5FD",
+							fontname="Sans-Serif",
+							fontsize=12,
+							label="K8s Namespaces",
+							labeljust=l,
+							lheight=0.18,
+							lp="254.5,662.5",
+							lwidth=1.43,
+							pencolor="#AEB6BE",
+							rankdir=LR,
+							shape=box,
+							style=rounded
+						];
+						subgraph "cluster_ingress-system" {
+							graph [bb="203,469,320,644",
+								bgcolor="#EBF3E7",
+								fontname="Sans-Serif",
+								fontsize=12,
+								label="ingress-system",
+								labeljust=l,
+								lheight=0.18,
+								lp="256,633.5",
+								lwidth=1.25,
+								pencolor="#AEB6BE",
+								rankdir=LR,
+								shape=box,
+								style=rounded
+							];
+							"11c762928af84b10816409dee8f0322e"	[height=1.9028,
+								image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/k8s/compute/pod.png",
+								label="Ingress Controller",
+								pos="261.5,546",
+								shape=none,
+								width=1.4028];
+						}
+						subgraph cluster_argo {
+							graph [bb="203,274,320,449",
+								bgcolor="#EBF3E7",
+								fontname="Sans-Serif",
+								fontsize=12,
+								label=argo,
+								labeljust=l,
+								lheight=0.18,
+								lp="225,438.5",
+								lwidth=0.39,
+								pencolor="#AEB6BE",
+								rankdir=LR,
+								shape=box,
+								style=rounded
+							];
+							"00d7e1fff9d34ad692d80e95102bf0f0"	[height=1.9028,
+								image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/k8s/compute/pod.png",
+								label=ArgoCD,
+								pos="261.5,351",
+								shape=none,
+								width=1.4028];
+						}
+					}
+					"8400ccbc03d84a39b3bf62a3962d0f54"	[height=2.3056,
+						image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/compute/kubernetes-services.png",
+						label="AKS Cluster
+<cluster_name>",
+						pos="261.5,799",
+						shape=none,
+						width=1.4028];
+					"8400ccbc03d84a39b3bf62a3962d0f54" -> ded06a34bba64b4eb296aa99fde70a29	[dir=none,
+						fontcolor="#2D3436",
+						fontname="Sans-Serif",
+						fontsize=13,
+						pos="262,715.62 262,672.69 262,629.25 262,629.25 262,629.25 391.69,629.25 465.91,629.25"];
+					"8400ccbc03d84a39b3bf62a3962d0f54" -> "251414cb2dfa427c83d3501faffd1674"	[dir=none,
+						fontcolor="#2D3436",
+						fontname="Sans-Serif",
+						fontsize=13,
+						pos="312.18,817.33 356.78,817.33 421.35,817.33 465.91,817.33"];
+					"8400ccbc03d84a39b3bf62a3962d0f54" -> c39a789f185b47c18f4ec017dc405f50	[dir=none,
+						fontcolor="#2D3436",
+						fontname="Sans-Serif",
+						fontsize=13,
+						pos="312.26,766.67 347.81,766.67 389,766.67 389,766.67 389,766.67 389,373.83 389,373.83 389,373.83 430.19,373.83 465.74,373.83"];
+					"11c762928af84b10816409dee8f0322e" -> ded06a34bba64b4eb296aa99fde70a29	[dir=forward,
+						fontcolor="#2D3436",
+						fontname="Sans-Serif",
+						fontsize=13,
+						pos="e,465.91,546.25 312.18,546.25 312.18,546.25 455.91,546.25 455.91,546.25"];
+					"00d7e1fff9d34ad692d80e95102bf0f0" -> c39a789f185b47c18f4ec017dc405f50	[dir=forward,
+						fontcolor="#2D3436",
+						fontname="Sans-Serif",
+						fontsize=13,
+						pos="e,465.91,328.17 312.18,328.17 312.18,328.17 455.91,328.17 455.91,328.17"];
+				}
+				subgraph "cluster_Subnet: Secondary (10.61.6.48/29)" {
+					graph [bb="149,55,374,230",
+						bgcolor="#FDF7E3",
+						fontname="Sans-Serif",
+						fontsize=12,
+						label="Subnet: Secondary (10.61.6.48/29)",
+						labeljust=l,
+						lheight=0.18,
+						lp="261.5,219.5",
+						lwidth=2.90,
+						pencolor="#AEB6BE",
+						rankdir=LR,
+						shape=box,
+						style=rounded
+					];
+					"9187847a8676422d97aece8c377c22dc"	[height=1.9028,
+						image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/network/subnets.png",
+						label=Secondary,
+						pos="261.5,132",
+						shape=none,
+						width=1.4028];
+				}
+			}
+			cee50f09f96c4f71b288a7f92fa77117	[height=1.9028,
+				image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/analytics/log-analytics-workspaces.png",
+				label="log-analytics",
+				pos="516.5,1032",
+				shape=none,
+				width=1.4028];
+			"8400ccbc03d84a39b3bf62a3962d0f54" -> cee50f09f96c4f71b288a7f92fa77117	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,517,963.14 312.28,875 386.8,875 517,875 517,875 517,875 517,953.14 517,953.14"];
+			"77491f5e335c49c59da19a3f3754843b"	[height=1.9028,
+				image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/security/key-vaults.png",
+				label="key-vault",
+				pos="516.5,1227",
+				shape=none,
+				width=1.4028];
+			"8400ccbc03d84a39b3bf62a3962d0f54" -> "77491f5e335c49c59da19a3f3754843b"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,465.84,1227 279,882.03 279,1006.5 279,1227 279,1227 279,1227 455.84,1227 455.84,1227"];
+		}
+		"8400ccbc03d84a39b3bf62a3962d0f54" -> c49381538c0b4834b05a14bb52544907	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,465.75,1422 245,882.05 245,1051.7 245,1422 245,1422 245,1422 455.75,1422 455.75,1422"];
+	}
+	c3a896e068df4444aa951ae632d3362b	[height=1.9028,
+		image="/mnt/d/workspace/architecture-diagrams-generator/diagram/venv/lib/python3.12/site-packages/resources/azure/general/usericon.png",
+		label=Users,
+		pos="50.5,799",
+		shape=none,
+		width=1.4028];
+	c3a896e068df4444aa951ae632d3362b -> "8400ccbc03d84a39b3bf62a3962d0f54"	[dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		pos="e,210.64,799 101.04,799 101.04,799 200.64,799 200.64,799"];
+}
